@@ -14,13 +14,14 @@ var express       = require("express"),
 var commentRoutes    = require("./routes/comments"),
     campgroundRoutes = require("./routes/campgrounds"),
     indexRoutes      = require("./routes/index")   
-
+   
 mongoose.connect("mongodb://localhost/yelp_camp");
 app.use(bodyparser.urlencoded({ extended: true }))
 app.set("view engine", "ejs");
 app.use(express.static(__dirname + "/public"))
 app.use(methodOverride("_method"));
 app.use(flash());
+global.basepath = __dirname;
 //seed the database
 //seedDB();
 
